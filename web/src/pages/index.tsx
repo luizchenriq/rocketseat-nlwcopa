@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import appPreviewImg from '../assets/app-nlw-copa-preview.png'
 import logoImg from '../assets/logo.svg'
-import usersAvatgarExampleImg from '../assets/users-avatar-example.png'
+import usersAvatarExampleImg from '../assets/user-avatars-example.png'
 import iconCheckImg from '../assets/icon-check.svg'
 import { api } from '../lib/axios';
 import { FormEvent, useState } from 'react'
@@ -19,7 +19,7 @@ export default function Home(props: HomeProps) {
     event.preventDefault()
 
     try {
-      const response = api.post('/pools', {
+      const response = await api.post('/pools', {
         title: poolTitle,
       })
 
@@ -38,7 +38,7 @@ export default function Home(props: HomeProps) {
   }
 
   return (
-    <div className="max-w-[1124px] h-screen mx-auto grid grid-cols-28 items-center">
+    <div className="max-w-[1124px] h-screen mx-auto grid grid-cols-2 gap-28 items-center">
       <main>
         <Image src={logoImg} alt="NLW Copa" />
 
@@ -47,7 +47,7 @@ export default function Home(props: HomeProps) {
         </h1>
 
         <div className="mt-10 flex items-center gap-2">
-          <Image src={usersAvatgarExampleImg} alt="" />
+          <Image src={usersAvatarExampleImg} alt="" />
           <strong className="text-gray-100 text-xl">
             <span className="text-ignite-500">+{props.userCount}</span> pessoas já estão usando
           </strong>
@@ -59,7 +59,7 @@ export default function Home(props: HomeProps) {
             type="text"
             required
             placeholder="Qual o nome do seu bolão?"
-            onChange={event => setPoolTitle(event.target.validationMessage)}
+            onChange={event => setPoolTitle(event.target.value)}
             value={poolTitle}
           />
           <button
@@ -78,7 +78,7 @@ export default function Home(props: HomeProps) {
           <div className="flex items-center gap-6">
             <Image src={iconCheckImg} alt="" />
             <div className="flex flex-col">
-              <span className="font-bold text-2xl">{props.poolCount}</span>
+              <span className="font-bold text-2xl">+{props.poolCount}</span>
               <span>Bolões criados</span>
             </div>
           </div>
@@ -88,19 +88,11 @@ export default function Home(props: HomeProps) {
           <div className="flex items-center gap-6">
             <Image src={iconCheckImg} alt="" />
             <div className="flex flex-col">
-              <span className="font-bold text-2xl">{props.guessCount}</span>
+              <span className="font-bold text-2xl">+{props.guessCount}</span>
               <span>Palpites enviados</span>
             </div>
           </div>
 
-          <div>
-            <Image src={iconCheckImg} alt="" />
-            <div>
-              <span>2.034</span>
-              <span>Bolões criados</span>
-            </div>
-            <div></div>
-          </div>
         </div>
 
       </main>

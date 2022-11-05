@@ -32,7 +32,7 @@ fastify.get("/guesses/count", async () => {
   return { count };
 });
 
-fastify.post("/pools/count", async (request, reply) => {
+fastify.post("/pools", async (request, reply) => {
   const createPoolBody = z.object({
     title: z.string(),
   })
