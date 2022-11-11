@@ -1,6 +1,6 @@
 import { Heading, VStack, Text } from 'native-base';
 
-import Logo from '../assets/Logo.svg';
+import Logo from '../assets/logo.svg';
 
 import { Header } from "../components/Header";
 import { Button } from "../components/Button";
@@ -15,7 +15,7 @@ export function New() {
         <Logo />
 
         <Heading fontFamily="heading" color="white" fontSize="xl" my={8} textAlign="center">
-          Crie o seu próprio bolão da copa {'\n'} e compartilhe entre amigos!
+          Crie o seu próprio bolão da copa{'\n'} e compartilhe entre amigos!
         </Heading>
 
         <Input

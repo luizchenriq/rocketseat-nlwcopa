@@ -41,6 +41,7 @@ model User {
   id String @id @default(cuid())
   name String
   email String @unique
+  googleId String? @unique
   avatarUrl String?
   createdAt DateTime @default(now())
 
@@ -63,9 +64,10 @@ model Guess {
   secondTeamPoints Int
   createdAt DateTime @default(now())
   gameId String
-  participantd String
+  participantId String
 
-  participant Participant @relation(fields: [participantd], references: [id])
+  participant Participant @relation(fields: [participantId], references: [id])
   game Game @relation(fields: [gameId], references: [id])
 
+  @@unique([participantId, gameId])
 }

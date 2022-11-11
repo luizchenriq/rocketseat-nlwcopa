@@ -27,7 +27,7 @@ async function main() {
 
   await prisma.game.create({
     data: {
-      date: '2022-11-02 12:00:00',
+      date: '2022-11-02T12:00:00.000Z',
       firstTeamCountryCode: 'DE',
       secodTeamCountryCode: 'BR',
     }

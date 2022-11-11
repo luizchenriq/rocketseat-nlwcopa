@@ -16,7 +16,7 @@ export function Button({ title, type = 'PRIMARY', ...rest }: Props) {
       textTransform="uppercase"
       bg={type === 'SECONDARY' ? 'red.500' : 'yellow.500'}
       _pressed={{
-        bg: type === 'SECONDARY' ? 'red.600' : 'yellow.600'
+        bg: type === 'SECONDARY' ? 'red.400' : 'yellow.600'
       }}
       _loading={{
         _spinner: { color: 'black'}
@@ -24,13 +24,13 @@ export function Button({ title, type = 'PRIMARY', ...rest }: Props) {
       {...rest}
     >
       <Text
-        fontSize="md"
+        fontSize="sm"
         fontFamily="heading"
-        bg={type === 'SECONDARY' ? 'white' : 'black'}
+        color={type === 'SECONDARY' ? 'white' : 'black'}
       >
         {title}
       </Text>
       
     </ButtonNativeBase>
-  )
+  );
 }
