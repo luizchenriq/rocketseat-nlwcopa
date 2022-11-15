@@ -59,6 +59,7 @@
 /mobile/*.mobileprovision
 /mobile/*.orig.*
 /mobile/web-build/
+/mobile/.env
 
 # macOS
 /mobile/.DS_Store
